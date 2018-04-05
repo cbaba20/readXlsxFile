@@ -41,7 +41,7 @@ namespace ReadExcelAndSendMail
 
                     if (task!=null)
                     {
-                        returningText =  "On Today"+changedDate.ToString("dd/MM/yyyy")+ "I am doing" + task +"to my friends.";
+                        returningText =  "Today"+" "+ changedDate.ToString("dd/MM/yyyy")+" "+"I am doing" +" " +task +" "+"to my friends.";
                         //Console.WriteLine(changedDate.ToString("dd/MM/yyyy") + "-->" + task);
                     }
                 }
@@ -101,16 +101,18 @@ namespace ReadExcelAndSendMail
             smtp.Port = 587;
 
             smtp.Credentials = new NetworkCredential(
-                "moodler18@gmail.com", "Eclerx#123");
+                "moodler18@gmail.com", "*****");
             smtp.EnableSsl = true;
             Console.WriteLine("Sending email...");
             smtp.Send(mail);
+            Console.WriteLine("Email Sent.");
+            System.Threading.Thread.Sleep(3000);
+            Environment.Exit(0);
         }
         static void Main(string[] args)
         {
             readExcelFile();
             sendMail();
-            Console.ReadKey();
         }
     }
 }
