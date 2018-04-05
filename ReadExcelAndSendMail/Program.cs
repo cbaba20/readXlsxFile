@@ -101,7 +101,7 @@ namespace ReadExcelAndSendMail
             smtp.Port = 587;
 
             smtp.Credentials = new NetworkCredential(
-                "moodler18@gmail.com", "Eclerx#123");
+                "moodler18@gmail.com", "*****");
             smtp.EnableSsl = true;
             Console.WriteLine("Sending email...");
             smtp.Send(mail);
