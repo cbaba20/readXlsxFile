@@ -41,7 +41,7 @@ namespace ReadExcelAndSendMail
 
                     if (task!=null)
                     {
-                        returningText =  "On Today"+changedDate.ToString("dd/MM/yyyy")+ "I am doing" + task +"to my friends.";
+                        returningText =  "Today"+" "+ changedDate.ToString("dd/MM/yyyy")+" "+"I am doing" +" " +task +" "+"to my friends.";
                         //Console.WriteLine(changedDate.ToString("dd/MM/yyyy") + "-->" + task);
                     }
                 }
@@ -105,12 +105,14 @@ namespace ReadExcelAndSendMail
             smtp.EnableSsl = true;
             Console.WriteLine("Sending email...");
             smtp.Send(mail);
+            Console.WriteLine("Email Sent.");
+            System.Threading.Thread.Sleep(3000);
+            Environment.Exit(0);
         }
         static void Main(string[] args)
         {
             readExcelFile();
             sendMail();
-            Console.ReadKey();
         }
     }
 }
